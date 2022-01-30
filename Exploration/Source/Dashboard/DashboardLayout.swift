@@ -32,7 +32,8 @@ class DashboardLayout: UICollectionViewLayout {
     }
     
     private static let interItemSpacing = 8.0
-    private static let interSectionSpacing = 8.0
+    private static let interSectionSpacing = 24.0
+    private static let contentInset = 8.0
     
     override func prepare() {
         guard let collectionView = self.collectionView else { return }
@@ -53,21 +54,22 @@ class DashboardLayout: UICollectionViewLayout {
                     let indexPath = IndexPath(item: item, section: section)
                     let targetWidth = collectionView.bounds.width * fraction
                     // Use preferred size if found, otherwise use estimated size
-                    let size = preferredSizes[indexPath] ?? CGSize(width: targetWidth, height: 50.0)
+                    let size = preferredSizes[indexPath] ?? CGSize(width: targetWidth - (Self.contentInset * 2), height: 50.0)
+                    preferredSizes.removeValue(forKey: indexPath)
                     
                     // determine origin for frame
                     let origin: CGPoint
                     
                     if let lastFrame = lastFrameInCurrentSection {
                         // TODO: plus interitem spacing?
-                        origin = CGPoint(x: 0.0, y: lastFrame.maxY + Self.interItemSpacing)
+                        origin = CGPoint(x: 0.0 + Self.contentInset, y: lastFrame.maxY + Self.interItemSpacing)
                     } else {
                         switch lastSectionType {
                         case nil:
-                            origin = CGPoint(x: 0.0, y: 0.0)
+                            origin = CGPoint(x: 0.0 + Self.contentInset, y: 0.0)
                             
                         case .fractionalWidth(let fraction):
-                            origin = CGPoint(x: 0.0, y: 0.0)
+                            origin = CGPoint(x: 0.0 + Self.contentInset, y: 0.0)
 
                         case .leftColumn:
                             origin = CGPoint(x: 0.0, y: 0.0)
@@ -97,8 +99,9 @@ class DashboardLayout: UICollectionViewLayout {
                     let indexPath = IndexPath(item: item, section: section)
                     let targetWidth = collectionView.bounds.width / 2
                     // Use preferred size if found, otherwise use estimated size
-                    let size = preferredSizes[indexPath] ?? CGSize(width: targetWidth, height: 50.0)
-                    
+                    let size = preferredSizes[indexPath] ?? CGSize(width: targetWidth - ((Self.contentInset) + Self.contentInset / 2), height: 50.0)
+                    preferredSizes.removeValue(forKey: indexPath)
+
                     // determine origin for frame
                     let origin: CGPoint
                     
@@ -112,9 +115,9 @@ class DashboardLayout: UICollectionViewLayout {
                             
                         case .fractionalWidth(let fraction):
                             if let lastFrame = lastFrameInFractionalWidthSection {
-                                origin = CGPoint(x: lastFrame.minX, y: lastFrame.maxY + Self.interSectionSpacing)
+                                origin = CGPoint(x: lastFrame.origin.x, y: lastFrame.maxY + Self.interSectionSpacing)
                             } else {
-                                origin = CGPoint(x: 0.0, y: 0.0)
+                                origin = CGPoint(x: 0.0 + Self.contentInset, y: 0.0)
                             }
 
                         case .leftColumn:
@@ -145,8 +148,9 @@ class DashboardLayout: UICollectionViewLayout {
                     let indexPath = IndexPath(item: item, section: section)
                     let targetWidth = collectionView.bounds.width / 2
                     // Use preferred size if found, otherwise use estimated size
-                    let size = preferredSizes[indexPath] ?? CGSize(width: targetWidth, height: 50.0)
-                    
+                    let size = preferredSizes[indexPath] ?? CGSize(width: targetWidth - ((Self.contentInset) + Self.contentInset / 2), height: 50.0)
+                    preferredSizes.removeValue(forKey: indexPath)
+
                     // determine origin for frame
                     let origin: CGPoint
                     
@@ -160,14 +164,14 @@ class DashboardLayout: UICollectionViewLayout {
                             
                         case .fractionalWidth(let fraction):
                             if let lastFrame = lastFrameInFractionalWidthSection {
-                                origin = CGPoint(x: targetWidth, y: lastFrame.maxY + Self.interSectionSpacing)
+                                origin = CGPoint(x: targetWidth + (Self.contentInset/2), y: lastFrame.maxY + Self.interSectionSpacing)
                             } else {
                                 origin = CGPoint(x: 0.0, y: 0.0)
                             }
 
                         case .leftColumn:
                             if let lastFrame = lastFrameInLeftSection {
-                                origin = CGPoint(x: targetWidth, y: lastFrame.minY)
+                                origin = CGPoint(x: targetWidth + (Self.contentInset/2), y: lastFrame.minY)
                             } else {
                                 origin = CGPoint(x: 0.0, y: 0.0)
                             }
