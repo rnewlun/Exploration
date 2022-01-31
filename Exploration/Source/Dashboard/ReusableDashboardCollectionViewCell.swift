@@ -24,9 +24,6 @@ class ReusableDashboardCollectionViewCell: UICollectionViewCell {
         contentView.subviews.first?.removeFromSuperview()
         
         switch module {
-        case .single:
-            break
-            
         case .reusableTile(_):
             let tile = ReusableTile()
             tile.translatesAutoresizingMaskIntoConstraints = false

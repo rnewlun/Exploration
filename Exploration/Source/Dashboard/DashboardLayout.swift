@@ -76,9 +76,6 @@ class DashboardLayout: UICollectionViewLayout {
 
                         case .rightColumn:
                             origin = CGPoint(x: 0.0, y: 0.0)
-
-                        case .main:
-                            origin = CGPoint(x: 0.0, y: 0.0)
                         }
                     }
 
@@ -124,9 +121,6 @@ class DashboardLayout: UICollectionViewLayout {
                             origin = CGPoint(x: 0.0, y: 0.0)
 
                         case .rightColumn:
-                            origin = CGPoint(x: 0.0, y: 0.0)
-
-                        case .main:
                             origin = CGPoint(x: 0.0, y: 0.0)
                         }
                     }
@@ -177,9 +171,6 @@ class DashboardLayout: UICollectionViewLayout {
                             }
                         case .rightColumn:
                             origin = CGPoint(x: 0.0, y: 0.0)
-
-                        case .main:
-                            origin = CGPoint(x: 0.0, y: 0.0)
                         }
                     }
                     
@@ -194,9 +185,6 @@ class DashboardLayout: UICollectionViewLayout {
                 }
                 lastSectionType = sectionType
                 lastFrameInCurrentSection = nil
-                
-            case .main:
-                break
             }
         }
     }

@@ -92,11 +92,6 @@ class DashboardViewController: UIViewController {
     private func makeDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
-            case .single:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DashboardCollectionViewCell.reuseIdentifier, for: indexPath)
-                cell.backgroundColor = .systemBlue
-                return cell
-                
             case .reusableTile(let id):
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReusableDashboardCollectionViewCell.reuseIdentifier, for: indexPath) as? ReusableDashboardCollectionViewCell {
                     cell.backgroundColor = .systemMint
@@ -127,20 +122,11 @@ class DashboardViewController: UIViewController {
         return dataSource
     }
     
-    private func buildSnapshot() -> Snapshot {
-        var snapshot = Snapshot()
-        snapshot.appendSections([.main])
-        snapshot.appendItems([.single], toSection: .main)
-        return snapshot
-    }
-    
     private func makeSnapshot(usingModules modules: [Dashboard.Module]) -> Snapshot {
         var snapshot = Snapshot()
         snapshot.appendSections([.fractionalWidth(1.0)])
         modules.forEach { module in
             switch module {
-            case .single:
-                break
                 
             case .reusableTile(let id):
                 snapshot.appendItems([module], toSection: .fractionalWidth(1.0))
