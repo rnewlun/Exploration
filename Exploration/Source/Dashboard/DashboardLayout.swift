@@ -202,14 +202,10 @@ class DashboardLayout: UICollectionViewLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        var visibleLayoutAttributes = [UICollectionViewLayoutAttributes]()
-            // Loop through the cache and look for items in the rect
-            for (_, attributes) in cache {
-                if attributes.frame.intersects(rect) {
-                    visibleLayoutAttributes.append(attributes)
-                }
-            }
-            return visibleLayoutAttributes
+        let visibleAttributes = cache
+            .filter { $0.value.frame.intersects(rect) }
+            .map { $0.value }
+        return visibleAttributes
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
