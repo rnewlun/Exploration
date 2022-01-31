@@ -61,7 +61,6 @@ class DashboardLayout: UICollectionViewLayout {
                     let origin: CGPoint
                     
                     if let lastFrame = lastFrameInCurrentSection {
-                        // TODO: plus interitem spacing?
                         origin = CGPoint(x: 0.0 + Self.contentInset, y: lastFrame.maxY + Self.interItemSpacing)
                     } else {
                         switch lastSectionType {
@@ -103,7 +102,6 @@ class DashboardLayout: UICollectionViewLayout {
                     let origin: CGPoint
                     
                     if let lastFrame = lastFrameInCurrentSection {
-                        // TODO: plus interitem spacing?
                         origin = CGPoint(x: lastFrame.minX, y: lastFrame.maxY + Self.interItemSpacing)
                     } else {
                         switch lastSectionType {
@@ -149,7 +147,6 @@ class DashboardLayout: UICollectionViewLayout {
                     let origin: CGPoint
                     
                     if let lastFrame = lastFrameInCurrentSection {
-                        // TODO: plus interitem spacing?
                         origin = CGPoint(x: lastFrame.minX, y: lastFrame.maxY + Self.interItemSpacing)
                     } else {
                         switch lastSectionType {
