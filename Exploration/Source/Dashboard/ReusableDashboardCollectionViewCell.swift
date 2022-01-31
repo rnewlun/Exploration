@@ -24,22 +24,7 @@ class ReusableDashboardCollectionViewCell: UICollectionViewCell {
         contentView.subviews.first?.removeFromSuperview()
         
         switch module {
-        case .reusableTile(_):
-            let tile = ReusableTile()
-            tile.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(tile)
-            tile.activateEqualConstraints(to: self.contentView)
-        case .module1(_):
-            let tile = ReusableTile()
-            tile.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(tile)
-            tile.activateEqualConstraints(to: self.contentView)
-        case .module2(_):
-            let tile = ReusableTile()
-            tile.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(tile)
-            tile.activateEqualConstraints(to: self.contentView)
-        case .module3(_):
+        default:
             let tile = ReusableTile()
             tile.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(tile)
