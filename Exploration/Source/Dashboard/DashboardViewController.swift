@@ -34,7 +34,6 @@ class DashboardViewController: UIViewController {
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .systemPink
-        view.register(DashboardCollectionViewCell.self, forCellWithReuseIdentifier: DashboardCollectionViewCell.reuseIdentifier)
         view.register(ReusableDashboardCollectionViewCell.self, forCellWithReuseIdentifier: ReusableDashboardCollectionViewCell.reuseIdentifier)
         return view
     }()
