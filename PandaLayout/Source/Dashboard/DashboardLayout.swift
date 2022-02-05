@@ -58,7 +58,7 @@ class DashboardLayout: UICollectionViewLayout {
             return
         }
         
-        // TODO: Calculate in prepare only the estimated sizes, invalidateWithContext will adjust for real sizes
+        // Calculate in prepare only the estimated sizes, invalidateWithContext will adjust for real sizes
         
         // For every item in a section, you must determine it's frame - which requires you to
         // determine it's size and origin.
@@ -247,6 +247,7 @@ class DashboardLayout: UICollectionViewLayout {
                         indexes.append(indexPath)
                     }
                 }
+                // TODO: Determine if we need to invalidate sections below us
                 
             case .right:
                 // get items in this section that are right aligned
@@ -257,12 +258,13 @@ class DashboardLayout: UICollectionViewLayout {
                         indexes.append(indexPath)
                     }
                 }
+                // TODO: Determine if we need to invalidate sections below us
             }
         }
         
         context.invalidateItems(at: Array(indexes))
         
-        // TODO: Save new contentSize height adjustment to context (difference between original and preferred, positive grows negative shrinks)
+        // Save new contentSize height adjustment to context (difference between original and preferred, positive grows negative shrinks)
         context.contentSizeAdjustment = CGSize(width: 0, height: preferredAttributes.size.height - originalAttributes.size.height)
         return context
     }
@@ -282,9 +284,11 @@ class DashboardLayout: UICollectionViewLayout {
             return
         }
         
+        // Adjust height of attributes for item that self-sized using saved path and context.contentSizeAdjustment.height
         // Update self sized item's height - specifically need to adjust the frame, otherwise the origin shifts.
         cache[selfSizedIndexPath]?.frame.size.height += dashboardContext.contentSizeAdjustment.height
         
+        // Iterate over all other affected index paths to adjust their origin y value, using context.invalidatedItemIndexPaths and context.contentSizeAdjustment.height
         // Update all other affected items y origin
         context.invalidatedItemIndexPaths?.forEach({ indexPath in
             if indexPath != selfSizedIndexPath {
@@ -292,13 +296,10 @@ class DashboardLayout: UICollectionViewLayout {
             }
         })
         
+        // Adjust contentSize using context.contentSizeAdjustment
         // Update contentBounds height based on self sized item adjustment
         contentBounds.size.height += context.contentSizeAdjustment.height
         
-        // TODO: Adjust height of attributes for item that self-sized using saved path and context.contentSizeAdjustment.height
-        // TODO: Iterate over all other affected index paths to adjust their origin y value, using context.invalidatedItemIndexPaths and context.contentSizeAdjustment.height
-        // TODO: Adjust contentSize using context.contentSizeAdjustment
-                
         // Set a flag to bail out of prepare() after this.
         didOptimizeLayoutForSelfSize = true
         super.invalidateLayout(with: context)
