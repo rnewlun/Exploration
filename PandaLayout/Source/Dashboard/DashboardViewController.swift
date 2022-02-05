@@ -16,9 +16,15 @@ class DashboardViewController: UIViewController {
     private lazy var dataSource: DataSource = makeDataSource()
     private lazy var layout: DashboardLayout = {
         let layout = DashboardLayout { sectionIndex, traits in
-            guard let semanticSection = Dashboard.SemanticSection(rawValue: sectionIndex) else { return .fractionalWidth(1.0) }
-            // iOS 15
-//            guard let semanticSection = self.dataSource.sectionIdentifier(for: sectionIndex) else { return .fractionalWidth(1.0) }
+            
+            let semanticSection: Dashboard.SemanticSection?
+            if #available(iOS 15, *) {
+                semanticSection = self.dataSource.sectionIdentifier(for: sectionIndex)
+            } else {
+                semanticSection = self.currentSectionIdentifiers[sectionIndex]
+            }
+            
+            guard let semanticSection = semanticSection else { return .fractionalWidth(1.0) }
             
             // TODO: If we opt for always using same semantic name areas but changing layout info for the section then we can avoid odd situations of returning nil here - every section will always have a supported layout for iPad and iPhone
             switch traits.horizontalSizeClass {
@@ -63,6 +69,7 @@ class DashboardViewController: UIViewController {
             dataSource.apply(currentSnapshot, animatingDifferences: true)
         }
     }
+    private var currentSectionIdentifiers: [Dashboard.SemanticSection] = []
     
     private let viewModel: DashboardViewModel
     private var cancellables = Set<AnyCancellable>()
@@ -121,8 +128,8 @@ class DashboardViewController: UIViewController {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
     
@@ -173,6 +180,7 @@ class DashboardViewController: UIViewController {
             return snapshot.numberOfItems(inSection: section) == 0
         }
         snapshot.deleteSections(emptySections)
+        currentSectionIdentifiers = snapshot.sectionIdentifiers
         return snapshot
     }
 }
