@@ -10,17 +10,53 @@ import Combine
 
 class DashboardViewController: UIViewController {
     
-    typealias DataSource = UICollectionViewDiffableDataSource<Dashboard.Section, Dashboard.Module>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Dashboard.Section, Dashboard.Module>
+    typealias DataSource = UICollectionViewDiffableDataSource<Dashboard.SemanticSection, Dashboard.Module>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Dashboard.SemanticSection, Dashboard.Module>
     
     private lazy var dataSource: DataSource = makeDataSource()
     private lazy var layout: DashboardLayout = {
-        let layout = DashboardLayout { sectionIndex in
-            self.dataSource.sectionIdentifier(for: sectionIndex)
+        let layout = DashboardLayout { sectionIndex, traits in
+            guard let semanticSection = self.dataSource.sectionIdentifier(for: sectionIndex) else { return .fractionalWidth(1.0) }
+            
+            switch traits.horizontalSizeClass {
+            case .regular:
+                switch semanticSection {
+                case .header:
+                    return .fractionalWidth(1.0)
+                case .mainWalletNonSplit:
+                    // not valid
+                    return nil
+                case .mainWalletSplit:
+                    return .split
+                case .footer:
+                    return .fractionalWidth(1.0)
+                }
+                
+            default:
+                // Compact layout uses full width items
+                return .fractionalWidth(1.0)
+            }
+        } splitItemLayoutProvider: { indexPath in
+            guard let module = self.dataSource.itemIdentifier(for: indexPath) else { return nil }
+
+            switch module {
+            case .greeting(_):
+                return nil
+            case .wallet(let viewModel):
+                if viewModel.accountID == 456 { return .right }
+                return .left
+            case .snapshot(_):
+                return nil
+            case .disclosures(_):
+                return nil
+            }
         }
+
+
         return layout
     }()
     
+    private var currentModules: [Dashboard.Module] = []
     private var currentSnapshot: Snapshot = Snapshot() {
         didSet {
             dataSource.apply(currentSnapshot, animatingDifferences: true)
@@ -68,6 +104,7 @@ class DashboardViewController: UIViewController {
         self.viewModel.modulesPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] modules in
+                self?.currentModules = modules
                 if let snapshot = self?.makeSnapshot(usingModules: modules) {
                     self?.currentSnapshot = snapshot
                 }
@@ -91,30 +128,26 @@ class DashboardViewController: UIViewController {
     private func makeDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
-            case .reusableTile(let id):
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReusableDashboardCollectionViewCell.reuseIdentifier, for: indexPath) as? ReusableDashboardCollectionViewCell {
-                    cell.backgroundColor = .systemMint
-                    cell.configureWith(module: itemIdentifier)
-                    return cell
-                }
-            case .module1(_):
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReusableDashboardCollectionViewCell.reuseIdentifier, for: indexPath) as? ReusableDashboardCollectionViewCell {
-                    cell.backgroundColor = .systemMint
-                    cell.configureWith(module: itemIdentifier)
-                    return cell
-                }
-            case .module2(_):
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReusableDashboardCollectionViewCell.reuseIdentifier, for: indexPath) as? ReusableDashboardCollectionViewCell {
-                    cell.backgroundColor = .systemMint
-                    cell.configureWith(module: itemIdentifier)
-                    return cell
-                }
-            case .module3(_):
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReusableDashboardCollectionViewCell.reuseIdentifier, for: indexPath) as? ReusableDashboardCollectionViewCell {
-                    cell.backgroundColor = .systemMint
-                    cell.configureWith(module: itemIdentifier)
-                    return cell
-                }
+            case .greeting(_):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReusableDashboardCollectionViewCell.reuseIdentifier, for: indexPath)
+                (cell as? ReusableDashboardCollectionViewCell)?.configureWith(module: itemIdentifier)
+                return cell
+                
+            case .wallet(_):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReusableDashboardCollectionViewCell.reuseIdentifier, for: indexPath)
+                (cell as? ReusableDashboardCollectionViewCell)?.configureWith(module: itemIdentifier)
+                return cell
+
+            case .snapshot(_):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReusableDashboardCollectionViewCell.reuseIdentifier, for: indexPath)
+                (cell as? ReusableDashboardCollectionViewCell)?.configureWith(module: itemIdentifier)
+                return cell
+
+            case .disclosures(_):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReusableDashboardCollectionViewCell.reuseIdentifier, for: indexPath)
+                (cell as? ReusableDashboardCollectionViewCell)?.configureWith(module: itemIdentifier)
+                return cell
+
             }
             return nil
         }
@@ -123,25 +156,34 @@ class DashboardViewController: UIViewController {
     
     private func makeSnapshot(usingModules modules: [Dashboard.Module]) -> Snapshot {
         var snapshot = Snapshot()
-        snapshot.appendSections([.fractionalWidth(1.0)])
+        // Add all sections initially
+        let sections = Dashboard.LayoutInfo.getPreferredSectionOrder(forTraitCollection: self.traitCollection)
+        snapshot.appendSections(sections)
+        
+        // TODO: Enforce ordering based on size class
+        // TODO: Define a structure that is a blueprint for product/design requirements
+        // TODO: Map modules to preferred section
         modules.forEach { module in
-            switch module {
-                
-            case .reusableTile(let id):
-                snapshot.appendItems([module], toSection: .fractionalWidth(1.0))
-            case .module1(_):
-                snapshot.appendSections([.leftColumn])
-                snapshot.appendItems([module], toSection: .leftColumn)
-
-            case .module2(_):
-                snapshot.appendSections([.rightColumn])
-                snapshot.appendItems([module], toSection: .rightColumn)
-
-            case .module3(_):
-                snapshot.appendItems([module], toSection: .rightColumn)
-
-            }
+            let preferredSection = Dashboard.LayoutInfo.getPreferredSection(forModule: module, usingTraitCollection: self.traitCollection)
+            snapshot.appendItems([module], toSection: preferredSection)
         }
+        
+        // Remove any sections that are empty
+        let emptySections = snapshot.sectionIdentifiers.filter { section in
+            return snapshot.numberOfItems(inSection: section) == 0
+        }
+        snapshot.deleteSections(emptySections)
         return snapshot
+    }
+}
+
+extension DashboardViewController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if previousTraitCollection?.horizontalSizeClass != self.traitCollection.horizontalSizeClass {
+            collectionView.collectionViewLayout.invalidateLayout()
+//            self.currentSnapshot = makeSnapshot(usingModules: currentModules)
+        }
     }
 }
