@@ -33,7 +33,7 @@ class DashboardViewController: UIViewController {
                 }
                 
             default:
-                // Compact layout uses full width items
+                // Compact layout uses full width items for all sections
                 return .fractionalWidth(1.0)
             }
         } splitItemLayoutProvider: { indexPath in
@@ -51,8 +51,6 @@ class DashboardViewController: UIViewController {
                 return nil
             }
         }
-
-
         return layout
     }()
     
@@ -149,7 +147,6 @@ class DashboardViewController: UIViewController {
                 return cell
 
             }
-            return nil
         }
         return dataSource
     }
