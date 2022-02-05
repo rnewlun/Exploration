@@ -17,6 +17,7 @@ class DashboardViewController: UIViewController {
     private lazy var layout: DashboardLayout = {
         let layout = DashboardLayout { sectionIndex, traits in
             guard let semanticSection = Dashboard.SemanticSection(rawValue: sectionIndex) else { return .fractionalWidth(1.0) }
+            // iOS 15
 //            guard let semanticSection = self.dataSource.sectionIdentifier(for: sectionIndex) else { return .fractionalWidth(1.0) }
             
             switch traits.horizontalSizeClass {
