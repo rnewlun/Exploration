@@ -24,7 +24,7 @@ class ReusableDashboardCollectionViewCell: UICollectionViewCell {
         contentView.subviews.first?.removeFromSuperview()
     }
     
-    static let colors: [UIColor] = [.systemBlue, .systemCyan, .systemMint, .systemOrange]
+    static let colors: [UIColor] = [.systemBlue, .systemBrown, .systemPink, .systemOrange]
     
     func configureWith(module: Dashboard.Module) {
         switch module {

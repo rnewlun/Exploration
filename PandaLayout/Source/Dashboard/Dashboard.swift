@@ -56,7 +56,7 @@ struct Dashboard {
     }
     
     /// Semantic name for sections
-    enum SemanticSection: CaseIterable {
+    enum SemanticSection: Int, CaseIterable {
         case header
         case mainWalletNonSplit
         case mainWalletSplit

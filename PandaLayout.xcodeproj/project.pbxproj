@@ -41,16 +41,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		70A0016927A65A6900053B39 /* Exploration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exploration.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70A0016927A65A6900053B39 /* PandaLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PandaLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A0016C27A65A6900053B39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70A0016E27A65A6900053B39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		70A0017027A65A6900053B39 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		70A0017527A65A6A00053B39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70A0017827A65A6A00053B39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70A0017A27A65A6A00053B39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		70A0017F27A65A6A00053B39 /* ExplorationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExplorationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		70A0017F27A65A6A00053B39 /* PandaLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PandaLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A0018327A65A6A00053B39 /* ExplorationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorationTests.swift; sourceTree = "<group>"; };
-		70A0018927A65A6A00053B39 /* ExplorationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExplorationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		70A0018927A65A6A00053B39 /* PandaLayoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PandaLayoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A0018D27A65A6A00053B39 /* ExplorationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorationUITests.swift; sourceTree = "<group>"; };
 		70A0018F27A65A6A00053B39 /* ExplorationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		70A001A027A6614600053B39 /* DashboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLayout.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		70A0016027A65A6900053B39 = {
 			isa = PBXGroup;
 			children = (
-				70A0016B27A65A6900053B39 /* Exploration */,
+				70A0016B27A65A6900053B39 /* PandaLayout */,
 				70A0018227A65A6A00053B39 /* ExplorationTests */,
 				70A0018C27A65A6A00053B39 /* ExplorationUITests */,
 				70A0016A27A65A6900053B39 /* Products */,
@@ -99,14 +99,14 @@
 		70A0016A27A65A6900053B39 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				70A0016927A65A6900053B39 /* Exploration.app */,
-				70A0017F27A65A6A00053B39 /* ExplorationTests.xctest */,
-				70A0018927A65A6A00053B39 /* ExplorationUITests.xctest */,
+				70A0016927A65A6900053B39 /* PandaLayout.app */,
+				70A0017F27A65A6A00053B39 /* PandaLayoutTests.xctest */,
+				70A0018927A65A6A00053B39 /* PandaLayoutUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		70A0016B27A65A6900053B39 /* Exploration */ = {
+		70A0016B27A65A6900053B39 /* PandaLayout */ = {
 			isa = PBXGroup;
 			children = (
 				70A0019D27A65D1400053B39 /* Source */,
@@ -114,7 +114,7 @@
 				70A0017727A65A6A00053B39 /* LaunchScreen.storyboard */,
 				70A0017A27A65A6A00053B39 /* Info.plist */,
 			);
-			path = Exploration;
+			path = PandaLayout;
 			sourceTree = "<group>";
 		};
 		70A0018227A65A6A00053B39 /* ExplorationTests */ = {
@@ -169,9 +169,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		70A0016827A65A6900053B39 /* Exploration */ = {
+		70A0016827A65A6900053B39 /* PandaLayout */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70A0019327A65A6A00053B39 /* Build configuration list for PBXNativeTarget "Exploration" */;
+			buildConfigurationList = 70A0019327A65A6A00053B39 /* Build configuration list for PBXNativeTarget "PandaLayout" */;
 			buildPhases = (
 				70A0016527A65A6900053B39 /* Sources */,
 				70A0016627A65A6900053B39 /* Frameworks */,
@@ -181,14 +181,14 @@
 			);
 			dependencies = (
 			);
-			name = Exploration;
+			name = PandaLayout;
 			productName = Exploration;
-			productReference = 70A0016927A65A6900053B39 /* Exploration.app */;
+			productReference = 70A0016927A65A6900053B39 /* PandaLayout.app */;
 			productType = "com.apple.product-type.application";
 		};
-		70A0017E27A65A6A00053B39 /* ExplorationTests */ = {
+		70A0017E27A65A6A00053B39 /* PandaLayoutTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70A0019627A65A6A00053B39 /* Build configuration list for PBXNativeTarget "ExplorationTests" */;
+			buildConfigurationList = 70A0019627A65A6A00053B39 /* Build configuration list for PBXNativeTarget "PandaLayoutTests" */;
 			buildPhases = (
 				70A0017B27A65A6A00053B39 /* Sources */,
 				70A0017C27A65A6A00053B39 /* Frameworks */,
@@ -199,14 +199,14 @@
 			dependencies = (
 				70A0018127A65A6A00053B39 /* PBXTargetDependency */,
 			);
-			name = ExplorationTests;
+			name = PandaLayoutTests;
 			productName = ExplorationTests;
-			productReference = 70A0017F27A65A6A00053B39 /* ExplorationTests.xctest */;
+			productReference = 70A0017F27A65A6A00053B39 /* PandaLayoutTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		70A0018827A65A6A00053B39 /* ExplorationUITests */ = {
+		70A0018827A65A6A00053B39 /* PandaLayoutUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70A0019927A65A6A00053B39 /* Build configuration list for PBXNativeTarget "ExplorationUITests" */;
+			buildConfigurationList = 70A0019927A65A6A00053B39 /* Build configuration list for PBXNativeTarget "PandaLayoutUITests" */;
 			buildPhases = (
 				70A0018527A65A6A00053B39 /* Sources */,
 				70A0018627A65A6A00053B39 /* Frameworks */,
@@ -217,9 +217,9 @@
 			dependencies = (
 				70A0018B27A65A6A00053B39 /* PBXTargetDependency */,
 			);
-			name = ExplorationUITests;
+			name = PandaLayoutUITests;
 			productName = ExplorationUITests;
-			productReference = 70A0018927A65A6A00053B39 /* ExplorationUITests.xctest */;
+			productReference = 70A0018927A65A6A00053B39 /* PandaLayoutUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -245,7 +245,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 70A0016427A65A6900053B39 /* Build configuration list for PBXProject "Exploration" */;
+			buildConfigurationList = 70A0016427A65A6900053B39 /* Build configuration list for PBXProject "PandaLayout" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -258,9 +258,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				70A0016827A65A6900053B39 /* Exploration */,
-				70A0017E27A65A6A00053B39 /* ExplorationTests */,
-				70A0018827A65A6A00053B39 /* ExplorationUITests */,
+				70A0016827A65A6900053B39 /* PandaLayout */,
+				70A0017E27A65A6A00053B39 /* PandaLayoutTests */,
+				70A0018827A65A6A00053B39 /* PandaLayoutUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -330,12 +330,12 @@
 /* Begin PBXTargetDependency section */
 		70A0018127A65A6A00053B39 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 70A0016827A65A6900053B39 /* Exploration */;
+			target = 70A0016827A65A6900053B39 /* PandaLayout */;
 			targetProxy = 70A0018027A65A6A00053B39 /* PBXContainerItemProxy */;
 		};
 		70A0018B27A65A6A00053B39 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 70A0016827A65A6900053B39 /* Exploration */;
+			target = 70A0016827A65A6900053B39 /* PandaLayout */;
 			targetProxy = 70A0018A27A65A6A00053B39 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -403,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -458,7 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -477,18 +477,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Exploration/Info.plist;
+				INFOPLIST_FILE = PandaLayout/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.Exploration;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.PandaLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -506,18 +506,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Exploration/Info.plist;
+				INFOPLIST_FILE = PandaLayout/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.Exploration;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.PandaLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -542,7 +542,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Exploration.app/Exploration";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PandaLayout.app/PandaLayout";
 			};
 			name = Debug;
 		};
@@ -562,7 +562,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Exploration.app/Exploration";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PandaLayout.app/PandaLayout";
 			};
 			name = Release;
 		};
@@ -605,7 +605,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		70A0016427A65A6900053B39 /* Build configuration list for PBXProject "Exploration" */ = {
+		70A0016427A65A6900053B39 /* Build configuration list for PBXProject "PandaLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70A0019127A65A6A00053B39 /* Debug */,
@@ -614,7 +614,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70A0019327A65A6A00053B39 /* Build configuration list for PBXNativeTarget "Exploration" */ = {
+		70A0019327A65A6A00053B39 /* Build configuration list for PBXNativeTarget "PandaLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70A0019427A65A6A00053B39 /* Debug */,
@@ -623,7 +623,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70A0019627A65A6A00053B39 /* Build configuration list for PBXNativeTarget "ExplorationTests" */ = {
+		70A0019627A65A6A00053B39 /* Build configuration list for PBXNativeTarget "PandaLayoutTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70A0019727A65A6A00053B39 /* Debug */,
@@ -632,7 +632,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70A0019927A65A6A00053B39 /* Build configuration list for PBXNativeTarget "ExplorationUITests" */ = {
+		70A0019927A65A6A00053B39 /* Build configuration list for PBXNativeTarget "PandaLayoutUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70A0019A27A65A6A00053B39 /* Debug */,
