@@ -1,14 +1,14 @@
 //
-//  ExplorationTests.swift
-//  ExplorationTests
+//  PandaLayoutTests.swift
+//  PandaLayoutTests
 //
 //  Created by Ryan Newlun on 1/30/22.
 //
 
 import XCTest
-@testable import Exploration
+@testable import PandaLayout
 
-class ExplorationTests: XCTestCase {
+class PandaLayoutTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -1,6 +1,6 @@
 //
 //  Dashboard.swift
-//  Exploration
+//  PandaLayout
 //
 //  Created by Ryan Newlun on 1/30/22.
 //

@@ -90,8 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				70A0016B27A65A6900053B39 /* PandaLayout */,
-				70A0018227A65A6A00053B39 /* ExplorationTests */,
-				70A0018C27A65A6A00053B39 /* ExplorationUITests */,
+				70A0018227A65A6A00053B39 /* PandaLayoutTests */,
+				70A0018C27A65A6A00053B39 /* PandaLayoutUITests */,
 				70A0016A27A65A6900053B39 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,21 +117,21 @@
 			path = PandaLayout;
 			sourceTree = "<group>";
 		};
-		70A0018227A65A6A00053B39 /* ExplorationTests */ = {
+		70A0018227A65A6A00053B39 /* PandaLayoutTests */ = {
 			isa = PBXGroup;
 			children = (
 				70A0018327A65A6A00053B39 /* ExplorationTests.swift */,
 			);
-			path = ExplorationTests;
+			path = PandaLayoutTests;
 			sourceTree = "<group>";
 		};
-		70A0018C27A65A6A00053B39 /* ExplorationUITests */ = {
+		70A0018C27A65A6A00053B39 /* PandaLayoutUITests */ = {
 			isa = PBXGroup;
 			children = (
 				70A0018D27A65A6A00053B39 /* ExplorationUITests.swift */,
 				70A0018F27A65A6A00053B39 /* ExplorationUITestsLaunchTests.swift */,
 			);
-			path = ExplorationUITests;
+			path = PandaLayoutUITests;
 			sourceTree = "<group>";
 		};
 		70A0019C27A65CD700053B39 /* Core */ = {
@@ -537,7 +537,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.ExplorationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.PandaLayoutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -557,7 +557,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.ExplorationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.PandaLayoutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -575,12 +575,12 @@
 				DEVELOPMENT_TEAM = XA6TRL85KE;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.ExplorationUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.PandaLayoutUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Exploration;
+				TEST_TARGET_NAME = PandaLayout;
 			};
 			name = Debug;
 		};
@@ -593,12 +593,12 @@
 				DEVELOPMENT_TEAM = XA6TRL85KE;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.ExplorationUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryannewlun.PandaLayoutUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Exploration;
+				TEST_TARGET_NAME = PandaLayout;
 			};
 			name = Release;
 		};

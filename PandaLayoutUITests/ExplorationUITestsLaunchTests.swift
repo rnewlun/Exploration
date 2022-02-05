@@ -1,13 +1,13 @@
 //
-//  ExplorationUITestsLaunchTests.swift
-//  ExplorationUITests
+//  PandaLayoutUITestsLaunchTests.swift
+//  PandaLayoutUITests
 //
 //  Created by Ryan Newlun on 1/30/22.
 //
 
 import XCTest
 
-class ExplorationUITestsLaunchTests: XCTestCase {
+class PandaLayoutUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
