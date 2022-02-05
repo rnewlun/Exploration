@@ -20,6 +20,7 @@ class DashboardViewController: UIViewController {
             // iOS 15
 //            guard let semanticSection = self.dataSource.sectionIdentifier(for: sectionIndex) else { return .fractionalWidth(1.0) }
             
+            // TODO: If we opt for always using same semantic name areas but changing layout info for the section then we can avoid odd situations of returning nil here - every section will always have a supported layout for iPad and iPhone
             switch traits.horizontalSizeClass {
             case .regular:
                 switch semanticSection {
@@ -182,6 +183,7 @@ extension DashboardViewController {
         
         if previousTraitCollection?.horizontalSizeClass != self.traitCollection.horizontalSizeClass {
             collectionView.collectionViewLayout.invalidateLayout()
+            // TODO: Do we make a snapshot adjustments when we have a size class change?
 //            self.currentSnapshot = makeSnapshot(usingModules: currentModules)
         }
     }

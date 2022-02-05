@@ -26,6 +26,7 @@ struct Dashboard {
         /// Maps a module to a semantic section
         static func getPreferredSection(forModule module: Dashboard.Module, usingTraitCollection traitCollection: UITraitCollection) -> SemanticSection {
             
+            // TODO: Do we have separate semantic setions for different size classes, or always define sections that change layout based on size class
             switch module {
             case .greeting(_):
                 return .header
@@ -59,6 +60,7 @@ struct Dashboard {
     enum SemanticSection: Int, CaseIterable {
         case header
         case mainWalletNonSplit
+        // TODO: MainSplittable? Remove mainWallet(s)
         case mainWalletSplit
         case footer
     }
